@@ -49,8 +49,6 @@ define([], function() {
                 async = false;
             }
 
-            //self.packets[self.id] = packet;
-
             xhr.onreadystatechange = function() {
                 if (xhr.readyState == 4 && xhr.status == 200) {
                     response = JSON.parse(xhr.responseText);
@@ -66,6 +64,7 @@ define([], function() {
             };
 
             xhr.open("POST", self.serviceUrl(), async);
+            xhr.setRequestHeader('Content-Type', 'application/json');
             xhr.send(requestBody);
 
             if (!async) {
