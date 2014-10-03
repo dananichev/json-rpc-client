@@ -7,9 +7,11 @@ Usage
 ===============
 Include this script on the page via AMD loader. And intialize it:
 ```javascript
-rpc.init();
-rpc.serviceUrl('http://url/to/service');
-rpc.token('token');
+define(['json-rpc'], function(rpc) {
+  rpc.init();
+  rpc.serviceUrl('http://url/to/service');
+  rpc.token('token');
+});
 ```
 Use ```rpc.sendPacket()``` method to communicate with service and events ```success``` and ```error``` to handle response from the server.
 ```javascript
